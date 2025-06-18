@@ -4,6 +4,32 @@ const fsp = require('fs/promises');
 const path = require('path');
 const os = require('os');
 
+
+function getDefaultChromeUserDataDir() {
+  switch (process.platform) {
+    case 'win32':
+      return path.join(os.homedir(), 'AppData', 'Local', 'Google', 'Chrome', 'User Data');
+    case 'darwin':
+      return path.join(os.homedir(), 'Library', 'Application Support', 'Google', 'Chrome');
+    default: // linux
+      return path.join(os.homedir(), '.config', 'google-chrome');
+  }
+}
+
+function getChromeExecutablePath() {
+  switch (process.platform) {
+    case 'win32':
+      return 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+    case 'darwin':
+      return '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+    default: // linux
+      return '/usr/bin/google-chrome';
+  }
+}
+
+
+
+
 async function cloneUserDataDir(srcDir, destDir) {
   try {
     await fsp.rm(destDir, { recursive: true, force: true }); // Clean up old temp dir
@@ -66,7 +92,7 @@ async function cloneUserDataDir(srcDir, destDir) {
 }
 
 async function runCheckoutBot() {
-  const originalProfile = '/home/emperana/.config/google-chrome';
+  const originalProfile = getDefaultChromeUserDataDir();
   const tempProfile = path.join(os.tmpdir(), 'chrome-puppeteer');
 
   await cloneUserDataDir(originalProfile, tempProfile);
@@ -89,10 +115,11 @@ async function runCheckoutBot() {
         '--disable-extensions',
         '--disable-component-extensions-with-background-pages'
       ],
-      executablePath: '/usr/bin/google-chrome',
+      executablePath: getChromeExecutablePath(),
       userDataDir: tempProfile,
       ignoreDefaultArgs: ['--enable-automation']
     });
+
     console.log('Browser launched successfully');
 
     // Get existing pages
