@@ -1,19 +1,14 @@
 const payWithGogle = async (page) => {
-  try {
-    await page.waitForSelector(
-      ".ant-btn.ant-btn-primary.ant-btn-dangerous.index_checkout__V9YPC",
-      {
-        timeout: 30000,
-        visible: true,
-      },
-    );
-    await page.click(".index_checkbox__w_166");
+  const ccOption = ".index_optionItem__yLztv";
 
-    await page.click(
-      ".ant-btn.ant-btn-primary.ant-btn-dangerous.index_checkout__V9YPC",
-    );
+  try {
+    await page.waitForSelector(ccOption, {
+      timeout: 30000,
+      visible: true,
+    });
+    await page.click(ccOption);
   } catch (selectorError) {
-    console.error("Error finding checkout button:", selectorError.message);
+    console.error("error finding credit card btn", selectorError.message);
 
     throw selectorError;
   }
