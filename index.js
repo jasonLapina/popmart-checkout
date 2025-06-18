@@ -138,6 +138,33 @@ async function runCheckoutBot() {
     console.log('Waiting after checkout button click...');
     await page.waitForTimeout(5000);
 
+    // Wait for and click the "Place Order" button
+    console.log('Waiting for place order button...');
+    try {
+      await page.waitForSelector('.ant-btn.ant-btn-primary.ant-btn-dangerous.index_placeOrderBtn__wgYr6', {
+        timeout: 30000,
+        visible: true
+      });
+      console.log('Place order button found, clicking...');
+      await page.click('.ant-btn.ant-btn-primary.ant-btn-dangerous.index_placeOrderBtn__wgYr6');
+      console.log('Place order button clicked successfully!');
+
+      // Wait after clicking place order button
+      console.log('Waiting after place order button click...');
+      await page.waitForTimeout(5000);
+    } catch (selectorError) {
+      console.error('Error finding place order button:', selectorError.message);
+      console.log('Taking screenshot of current page state...');
+      await page.screenshot({ path: 'place-order-button-not-found.png' });
+
+      // Try to get page content for debugging
+      const pageContent = await page.content();
+      fs.writeFileSync('place-order-page-content.html', pageContent);
+      console.log('Page content saved to place-order-page-content.html');
+
+      throw selectorError;
+    }
+
   } catch (error) {
     console.error(`Error occurred: ${error.message}`);
     console.error(`Error stack: ${error.stack}`);
