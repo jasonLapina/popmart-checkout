@@ -7,11 +7,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "keywords": ["puppeteer", "checkout", "bot", "automation"],
+  "keywords": [
+    "puppeteer",
+    "checkout",
+    "bot",
+    "automation"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "puppeteer": "^21.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3"
   }
 }
