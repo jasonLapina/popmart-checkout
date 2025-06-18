@@ -113,10 +113,12 @@ async function runCheckoutBot() {
 
     console.log('Waiting for checkout button...');
     try {
+
       await page.waitForSelector('.ant-btn.ant-btn-primary.ant-btn-dangerous.index_checkout__V9YPC', {
         timeout: 30000,
         visible: true
       });
+      await page.click('.index_checkbox__w_166')
       console.log('Checkout button found, clicking...');
       await page.click('.ant-btn.ant-btn-primary.ant-btn-dangerous.index_checkout__V9YPC');
       console.log('Checkout button clicked successfully!');
