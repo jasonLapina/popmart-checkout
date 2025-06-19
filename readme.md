@@ -37,7 +37,7 @@ If you want to build the executables yourself:
 ## Usage
 
 ### Using Node.js
-- **npm start**: Opens a chrome window and navigates to your popmart bag, checks every minute if it's 7pm. If not, it does nothing. If so, it checks out every item in your bag using your default address and saved CC info for GPAY.
+- **npm start**: Opens a chrome window and navigates to your popmart bag, checks every second if it's 7pm. If not, it does nothing. If so, it checks out every item in your bag using your default address and saved CC info for GPAY.
 - **npm test**: Opens a chrome window, navigates to your popmart bag BUT does not wait for the 7pm mark. It instantly executes the checkout process up to the point of payment. Payment does NOT continue, it will just log to your console "Paid with google" as this is for testing purposes only
 - **npm delay**: Opens chrome, navigates to your bag WAITS FOR 5 MINS., then executes checkout process (including payment)
 

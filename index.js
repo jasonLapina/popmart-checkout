@@ -105,7 +105,7 @@ async function runCheckoutBot() {
       );
       console.log("Current time:", new Date().toLocaleTimeString());
 
-      // Set up an interval to check the time every minute
+      // Set up an interval to check the time every second
       const checkTimeInterval = setInterval(async () => {
         console.log("Current time:", new Date().toLocaleTimeString());
 
@@ -120,7 +120,7 @@ async function runCheckoutBot() {
             console.error(`Error stack: ${checkoutError.stack}`);
           }
         }
-      }, 60000); // Check every minute
+      }, 1000); // Check every second
     }
   } catch (error) {
     console.error(`Bot execution failed: ${error.message}`);
