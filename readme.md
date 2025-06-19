@@ -8,12 +8,14 @@
 - Download the appropriate executable for your platform from the `dist` directory:
   - Linux: `checkout-popmart-linux`
   - macOS: `checkout-popmart-macos`
-- Make the executable file executable:
+  - Windows: `checkout-popmart-win.exe`
+- Make the executable file executable (Linux/macOS only):
   - Linux: `chmod +x checkout-popmart-linux`
   - macOS: `chmod +x checkout-popmart-macos`
 - Run the executable directly:
   - Linux: `./checkout-popmart-linux`
   - macOS: `./checkout-popmart-macos`
+  - Windows: Double-click `checkout-popmart-win.exe` or run from command prompt
 
 ## Building Executables
 If you want to build the executables yourself:
@@ -40,6 +42,15 @@ If you want to build the executables yourself:
 - **npm delay**: Opens chrome, navigates to your bag WAITS FOR 5 MINS., then executes checkout process (including payment)
 
 ### Using Executables
-- **Default mode** (equivalent to npm start): `./checkout-popmart-linux` or `./checkout-popmart-macos`
-- **Test mode** (equivalent to npm test): `./checkout-popmart-linux run-all` or `./checkout-popmart-macos run-all`
-- **Delay mode** (equivalent to npm delay): `./checkout-popmart-linux run-checkout-delayed` or `./checkout-popmart-macos run-checkout-delayed`
+- **Default mode** (equivalent to npm start): 
+  - Linux: `./checkout-popmart-linux`
+  - macOS: `./checkout-popmart-macos`
+  - Windows: `checkout-popmart-win.exe`
+- **Test mode** (equivalent to npm test): 
+  - Linux: `./checkout-popmart-linux run-all`
+  - macOS: `./checkout-popmart-macos run-all`
+  - Windows: `checkout-popmart-win.exe run-all`
+- **Delay mode** (equivalent to npm delay): 
+  - Linux: `./checkout-popmart-linux run-checkout-delayed`
+  - macOS: `./checkout-popmart-macos run-checkout-delayed`
+  - Windows: `checkout-popmart-win.exe run-checkout-delayed`
