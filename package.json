@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "description": "Auto checkout bot for Popmart using Puppeteer",
   "main": "index.js",
+  "bin": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "node index.js run-all",
-    "delay": "node index.js run-checkout-delayed"
+    "delay": "node index.js run-checkout-delayed",
+    "build": "pkg ."
+  },
+  "pkg": {
+    "targets": ["node16-linux-x64", "node16-macos-x64"],
+    "outputPath": "dist",
+    "assets": ["steps/**/*", "utils.js"]
   },
   "keywords": [
     "puppeteer",
@@ -21,6 +28,7 @@
     "puppeteer": "^21.0.0"
   },
   "devDependencies": {
+    "pkg": "^5.8.1",
     "prettier": "^3.5.3"
   }
 }
