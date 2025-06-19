@@ -57,6 +57,8 @@ async function runCheckoutBot() {
     // CHECKOUT
     await checkOut(page);
     //   PROCEED TO PAYMENT
+
+    await page.waitForTimeout(5000);
     await proceedToPayment(page);
     //   PAY WITH GOOGLE
     // await payWithGoogle(page);
