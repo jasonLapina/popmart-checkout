@@ -1,4 +1,4 @@
-const payWithGogle = async (page) => {
+const payWithGoogle = async (page) => {
   const ccOption = ".index_optionItem__yLztv";
   const payWithGoogleBtn = ".gpay-card-info-placeholder-container";
 
@@ -15,7 +15,7 @@ const payWithGogle = async (page) => {
       visible: true,
     });
 
-    console.log("Found Google Pay button:", payWithGoogleBtn);
+    await page.click(payWithGoogleBtn);
   } catch (selectorError) {
     console.error(
       "Error finding credit card or Google Pay button:",
@@ -25,4 +25,4 @@ const payWithGogle = async (page) => {
   }
 };
 
-module.exports = payWithGogle;
+module.exports = payWithGoogle;
