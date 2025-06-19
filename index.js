@@ -61,7 +61,8 @@ async function runCheckoutBot() {
     await page.waitForTimeout(5000);
     await proceedToPayment(page);
     //   PAY WITH GOOGLE
-    // await payWithGoogle(page);
+
+    await payWithGoogle(page);
   } catch (error) {
     console.error(`Error occurred: ${error.message}`);
     console.error(`Error stack: ${error.stack}`);
