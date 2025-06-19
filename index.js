@@ -57,11 +57,10 @@ async function runCheckoutBot() {
     // CHECKOUT
     await checkOut(page);
     //   PROCEED TO PAYMENT
-
     await page.waitForTimeout(5000);
     await proceedToPayment(page);
     //   PAY WITH GOOGLE
-
+    await page.waitForTimeout(5000);
     await payWithGoogle(page);
   } catch (error) {
     console.error(`Error occurred: ${error.message}`);

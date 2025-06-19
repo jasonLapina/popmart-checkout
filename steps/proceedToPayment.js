@@ -11,8 +11,6 @@ const proceedToPayment = async (page) => {
     await page.click(
       ".ant-btn.ant-btn-primary.ant-btn-dangerous.index_placeOrderBtn__wgYr6",
     );
-
-    await page.waitForTimeout(5000);
   } catch (selectorError) {
     console.error("Error finding place order button:", selectorError.message);
 

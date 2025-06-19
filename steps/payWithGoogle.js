@@ -1,16 +1,16 @@
 const payWithGogle = async (page) => {
-  const ccOption = ".index_optionItem__yLztv";
+  const ccOption = ".index_radio__UGOaV";
 
   const payWithGoogleBtn = ".gpay-card-info-placeholder-container";
 
   try {
     await page.waitForSelector(ccOption, {
-      timeout: 5000,
+      timeout: 30000,
       visible: true,
     });
 
     await page.waitForSelector(payWithGoogleBtn, {
-      timeout: 5000,
+      timeout: 30000,
       visible: true,
     });
 
