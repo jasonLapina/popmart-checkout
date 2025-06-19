@@ -1,3 +1,7 @@
+## Installation
+- navigate to the root directory of the project
+- run npm install
+
 ## Pre requisites
 - Set a default address to your popmart account
 - Connect your credit card to your google account and make sure your browser reads it so that the app can pay via this GPay Button:
