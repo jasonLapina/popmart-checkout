@@ -1,6 +1,5 @@
 const payWithGogle = async (page) => {
-  const ccOption = ".index_radio__UGOaV";
-
+  const ccOption = ".index_optionItem__yLztv";
   const payWithGoogleBtn = ".gpay-card-info-placeholder-container";
 
   try {
@@ -9,17 +8,19 @@ const payWithGogle = async (page) => {
       visible: true,
     });
 
+    await page.click(ccOption);
+
     await page.waitForSelector(payWithGoogleBtn, {
       timeout: 30000,
       visible: true,
     });
 
-    await page.click(ccOption);
-
-    console.log(payWithGoogleBtn);
+    console.log("Found Google Pay button:", payWithGoogleBtn);
   } catch (selectorError) {
-    console.error("error finding credit card btn", selectorError.message);
-
+    console.error(
+      "Error finding credit card or Google Pay button:",
+      selectorError.message,
+    );
     throw selectorError;
   }
 };
